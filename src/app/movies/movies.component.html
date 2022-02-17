@@ -3,12 +3,13 @@
 
 
 
-    
-    <div class="alert alert-success">{{movies.length}} tane film var.</div>
-    <ng-template [ngTemplateOutlet]="movieList2" [ngTemplateOutletContext]="{movies:popularMovies}"></ng-template>
+    <div class="mb-3">
+        <input [(ngModel)]="searchedMovie" type="text" class="form-control" placeholder="Film Ara" >
+        <small class="text-muted" *ngIf="searchedMovie">Aranan : {{searchedMovie}}</small>
+    </div>
     <hr>
+    <ng-template [ngTemplateOutlet]="searched"></ng-template>
     <ng-template [ngTemplateOutlet]="movieList1"></ng-template>
-    
     <ng-template #movieList1>
     <h5>Film Listesi</h5>
     <div class="card mb-3" *ngFor="let item of movies">
@@ -18,15 +19,43 @@
             </div>
             <div class="col-md-9">
                 <div class="card-body">
-                    <h2 class="card-title">{{item.title}}</h2>
-                    <p class="card-text">{{item.description}}</p>
+                    <h2 class="card-title">{{item.title | titlecase}}</h2>
+                    <ul style="text-align: end;" class="list-group list-group-flush ">
+                        <li class="list-group-item text-muted">Yayınlanma Tarihi : {{item.publishedDate|date:'dd/MM/y'}}</li>
+                        <li class="list-group-item text-muted">Yönetmenler : {{item.filmDirectors}}</li>
+                        <li class="list-group-item text-muted">Senaristler :{{item.screenWriters}}</li>
+                      </ul>
+                      <hr>
+                      <p class="card-text" style="text-align: left;">{{item.description | summary: 150}}</p>
                     <button class="btn btn-sm btn-outline-primary">Detaylar</button>
                 </div>
             </div>
         </div>
     </div>
     </ng-template>
-
+    <ng-template #searched>
+        <h5 *ngIf="searchedMovie"></h5>        
+        <div class="card mb-3" *ngFor="let item of movies | filmFilter: searchedMovie">
+            <div class="row">
+                <div class="col-md-3">
+                    <img src="/assets/img/{{item.imageUrl}}" class="img-fluid rounded-start" alt="">
+                </div>
+                <div class="col-md-9">
+                    <div class="card-body">
+                        <h2 class="card-title">{{item.title | titlecase}}</h2>
+                        <ul style="text-align: end;" class="list-group list-group-flush ">
+                            <li class="list-group-item text-muted">Yayınlanma Tarihi : {{item.publishedDate|date:'dd/MM/y'}}</li>
+                            <li class="list-group-item text-muted">Yönetmenler : {{item.filmDirectors}}</li>
+                            <li class="list-group-item text-muted">Senaristler :{{item.screenWriters}}</li>
+                          </ul>
+                          <hr>
+                          <p class="card-text" style="text-align: left;">{{item.description | summary: 150}}</p>
+                        <button class="btn btn-sm btn-outline-primary">Detaylar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-template>
     <ng-template #movieList2 let-popularFilms = "movies">
         <h4>Populer Filmler</h4>
         <div class="row row-cols-1 row-cols-md-3 g-4 mb-3">
@@ -48,3 +77,5 @@
 <ng-template #noMovies >
    <div class="alert alert-warning" >Herhangi Bir Film Bulunamadı</div>
 </ng-template>
+
+<p>{{today | date:'fullDate'}}</p>  
