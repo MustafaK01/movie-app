@@ -1,1 +1,41 @@
-<p>movie-details works!</p>
+<div *ngIf="movie; else blank">
+    <div class="card">
+        <div class="row">
+            <div class="col-md-4">
+                <img src="/assets/img/{{movie.imageUrl}}" class="img-fluid">
+            </div>
+            <div class="col-md-8">
+                <div class="card text-center">
+                    <div class="card-header">
+                    <b>{{movie.title}}</b>
+                    </div>
+                    <div class="card-body">
+                        <ul style="text-align: end;" class="list-group list-group-flush ">
+                            <li class="list-group-item text-muted">Yayınlanma Tarihi : <!--{{item.publishedDate|date:'dd/MM/y'}}--></li>
+                            <li class="list-group-item text-muted">Yönetmenler : {{movie.filmDirectors}}</li>
+                            <li class="list-group-item text-muted">Senaristler :{{movie.screenWriters}}</li>
+                        </ul>
+                        <hr>
+                        <div class="text-start">{{movie.description}}</div>
+                    </div>
+                    <div class="card-footer text-muted text-start">
+                        <a (click)="addToList($event,movie)" class="btn btn-primary">Listeye Ekle</a>
+                        <div class="text-end" *ngIf="addedMessage.length<=15;">
+                            <ng-template [ngTemplateOutlet]="eklendi"></ng-template>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+</div>
+<ng-template #eklendi>
+    <div class="alert alert-success" *ngIf="addedMessage">
+        {{addedMessage}}
+    </div>
+</ng-template>
+<ng-template #blank>
+    <div class="alert alert-warning">
+        {{"Film Bulunamadı"}}
+    </div>
+</ng-template>
