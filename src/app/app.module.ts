@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http'
+
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -11,7 +13,9 @@ import { FooterComponent } from './footer/footer.component';
 import { SummaryPipe } from './pipes/summary.pipe';
 import { FormsModule } from '@angular/forms';
 import { FilmFilterPipe } from './pipes/filmFilter.pipe';
-
+import { AlterifyService } from './services/aleterify.service';
+import { AppRoutingModule } from './app-routing.module';
+// import { MovieService } from './services/movie.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,9 +30,13 @@ import { FilmFilterPipe } from './pipes/filmFilter.pipe';
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
+    AppRoutingModule,
   ],
-  providers: [],
+  providers: [
+    AlterifyService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
