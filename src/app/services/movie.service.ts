@@ -42,3 +42,4 @@ export class MovieService{
         return throwError("Bir Hata Oluştu")
     }
 }
+

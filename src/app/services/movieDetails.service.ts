@@ -37,3 +37,4 @@ export class MovieDetailsService{
             return throwError("Bir Hata Oluştu")
     }
 }
+
