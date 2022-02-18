@@ -1,3 +1,6 @@
-<div class="list-group" >
-    <a href="" *ngFor="let item of categories" class="list-group-item list-group-item-action">{{item.categoryName}}</a>
+<div class="list-group">    
+    <a 
+    *ngFor="let item of categories" 
+    routerLink="movies/category/{{item.categoryId}}"
+    class="list-group-item list-group-item-action">{{item.categoryName}}</a>
 </div>
