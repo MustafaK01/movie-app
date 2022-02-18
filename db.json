@@ -1,0 +1,16 @@
+
+{"movies":[{"id":0,"title":"Yüzüklerin Efendisi(Lord Of The Rings)","description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed id incidunt harum maxime libero est exercitationem unde explicabo? Officiis quis illum cupiditate quasi dicta corporis non est impedit vel a!" ,"imageUrl":"lotr.jpg","isPopular":1,"screenWriters":"Peter Jackson, Philippa Boyens, Fran Walsh","filmDirectors":"Peter Jackson","categoryId":1},
+    {"id":1,"title":"Yıldızlararası(Interstellar)","description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed id incidunt harum maxime libero est exercitationem unde explicabo? Officiis quis illum cupiditate quasi dicta corporis non est impedit vel a!","imageUrl":"interstellar.jpg","isPopular":1,"screenWriters":"Christopher Nolan, Jonathan Nolan","filmDirectors":"Christopher Nolan","categoryId":0},
+    {"id":2,"title":"Aman Tanrım(Bruce Almighty)","description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed id incidunt harum maxime libero est exercitationem unde explicabo? Officiis quis illum cupiditate quasi dicta corporis non est impedit vel a!","imageUrl":"bruceAlmighty.jpg","isPopular":0,"screenWriters":"Steve Oedekerk, Steve Koren, Mark O'Keefe","filmDirectors":"Tom Shadyac","categoryId":4},
+    {"id":3,"title":"Matrix","description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed id incidunt harum maxime libero est exercitationem unde explicabo? Officiis quis illum cupiditate quasi dicta corporis non est impedit vel a!","imageUrl":"matrix.jpg","isPopular":1,"screenWriters":"Lana Wachowski, Lilly Wachowski","filmDirectors":"Lana Wachowski, Lilly Wachowski","categoryId":3},
+    {"id":4,"title":"Sil Baştan (Eternal Sunshine Of Spotless Mind)","description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed id incidunt harum maxime libero est exercitationem unde explicabo? Officiis quis illum cupiditate quasi dicta corporis non est impedit vel a!","imageUrl":"eternalSunshineOfSpotlessMind.jpg","isPopular":0,"screenWriters":"Charlie Kaufman","filmDirectors":"Michel Gondry","categoryId":2}
+    ],
+    "categories":[
+        {"categoryId":0,"categoryName":"Bilim Kurgu"},
+        {"categoryId":1,"categoryName":"Fantastik"},
+        {"categoryId":2,"categoryName":"Dram"},
+        {"categoryId":3,"categoryName":"Aksiyon"},
+        {"categoryId":4,"categoryName":"Komedi"}
+    ]
+
+}
