@@ -3,13 +3,12 @@ import { Injectable } from "@angular/core";
 import { catchError, Observable, tap, throwError } from "rxjs";
 import { Movie } from "../models/movieModel";
 
-
 @Injectable()
 export class MovieService{
     url="http://localhost:3000/movies";
     private http:HttpClient;
     constructor(http:HttpClient){
-        this.http=http;
+        this.http=http; 
     }
     getMovies(categoryId:number):Observable<Movie[]>{
         
@@ -19,9 +18,9 @@ export class MovieService{
             tempUrl+='?categoryId='+categoryId;
         }
         return this.http.get<Movie[]>(tempUrl).pipe(
-            catchError(this.errHandl));
+            catchError(this.errHandler));
     }
-    errHandl(error:HttpErrorResponse){
+    errHandler(error:HttpErrorResponse){
         if(error.error instanceof ErrorEvent){
             console.log("Error !  : ", error.error)
         }else{
@@ -42,4 +41,3 @@ export class MovieService{
         return throwError("Bir Hata Oluştu")
     }
 }
-

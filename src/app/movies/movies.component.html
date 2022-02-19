@@ -24,7 +24,7 @@
                 <div class="card-body">
                     <h2 class="card-title">{{item.title | titlecase}}</h2>
                     <ul style="text-align: end;" class="list-group list-group-flush ">
-                        <li class="list-group-item text-muted">Yayınlanma Tarihi : <!--{{item.publishedDate|date:'dd/MM/y'}}--></li>
+                        <li class="list-group-item text-muted">Yayınlanma Tarihi : {{item.publishedDate}}<!--{{item.publishedDate|date:'dd/MM/y'}}--></li>
                         <li class="list-group-item text-muted">Yönetmenler : {{item.filmDirectors}}</li>
                         <li class="list-group-item text-muted">Senaristler :{{item.screenWriters}}</li>
                       </ul>

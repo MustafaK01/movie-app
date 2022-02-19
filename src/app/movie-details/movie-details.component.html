@@ -11,9 +11,10 @@
                     </div>
                     <div class="card-body">
                         <ul style="text-align: end;" class="list-group list-group-flush ">
-                            <li class="list-group-item text-muted">Yayınlanma Tarihi : <!--{{item.publishedDate|date:'dd/MM/y'}}--></li>
+                            <li class="list-group-item text-muted">Yayınlanma Tarihi : {{movie.publishedDate|date:'dd/MM/y'}}</li>
                             <li class="list-group-item text-muted">Yönetmenler : {{movie.filmDirectors}}</li>
                             <li class="list-group-item text-muted">Senaristler :{{movie.screenWriters}}</li>
+                            <li class="list-group-item text-start text-muted">IMDB Puanı: {{movie.imdbPoint+"/10"}}</li>
                         </ul>
                         <hr>
                         <div class="text-start">{{movie.description}}</div>
@@ -39,3 +40,4 @@
         {{"Film Bulunamadı"}}
     </div>
 </ng-template>
+

@@ -1,5 +1,5 @@
 import { HttpClient, HttpErrorResponse, HttpResponse } from "@angular/common/http";
-import { Injectable } from "@angular/core";
+import { ErrorHandler, Injectable } from "@angular/core";
 import { catchError, Observable, throwError } from "rxjs";
 import { Movie } from "../models/movieModel";
 
@@ -30,11 +30,13 @@ export class MovieDetailsService{
                 case 403:
                     console.log("Engellendi")
                     break
+                case 400:
+                    console.log("Geçersiz İstek")
+                    break
                 default:
                     console.log("Hata !")
             }
         }
-            return throwError("Bir Hata Oluştu")
+        return throwError("Bir Hata Oluştu")
     }
 }
-

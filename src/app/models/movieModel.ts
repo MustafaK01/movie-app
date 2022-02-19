@@ -7,4 +7,8 @@ export interface Movie{
     publishedDate:Date;
     screenWriters:string;
     filmDirectors:string;
+    categoryId:number;
+    imdbPoint:number;
+    uploadDate:number
 }
+
