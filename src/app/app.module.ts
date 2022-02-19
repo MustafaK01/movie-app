@@ -15,6 +15,8 @@ import { FormsModule } from '@angular/forms';
 import { FilmFilterPipe } from './pipes/filmFilter.pipe';
 import { AlterifyService } from './services/aleterify.service';
 import { AppRoutingModule } from './app-routing.module';
+import { MovieAddComponent } from './movie-add/movie-add.component';
+// import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 // import { MovieService } from './services/movie.service';
 @NgModule({
   declarations: [
@@ -27,12 +29,14 @@ import { AppRoutingModule } from './app-routing.module';
     FooterComponent,
     SummaryPipe,
     FilmFilterPipe,
-  ],
+    MovieAddComponent
+    ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
     AppRoutingModule,
+    // FontAwesomeModule,
   ],
   providers: [
     AlterifyService
