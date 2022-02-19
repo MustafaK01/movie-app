@@ -1,16 +1,118 @@
-
-{"movies":[{"id":0,"title":"Yüzüklerin Efendisi(Lord Of The Rings)","description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed id incidunt harum maxime libero est exercitationem unde explicabo? Officiis quis illum cupiditate quasi dicta corporis non est impedit vel a!" ,"imageUrl":"lotr.jpg","isPopular":1,"screenWriters":"Peter Jackson, Philippa Boyens, Fran Walsh","filmDirectors":"Peter Jackson","categoryId":1},
-    {"id":1,"title":"Yıldızlararası(Interstellar)","description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed id incidunt harum maxime libero est exercitationem unde explicabo? Officiis quis illum cupiditate quasi dicta corporis non est impedit vel a!","imageUrl":"interstellar.jpg","isPopular":1,"screenWriters":"Christopher Nolan, Jonathan Nolan","filmDirectors":"Christopher Nolan","categoryId":0},
-    {"id":2,"title":"Aman Tanrım(Bruce Almighty)","description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed id incidunt harum maxime libero est exercitationem unde explicabo? Officiis quis illum cupiditate quasi dicta corporis non est impedit vel a!","imageUrl":"bruceAlmighty.jpg","isPopular":0,"screenWriters":"Steve Oedekerk, Steve Koren, Mark O'Keefe","filmDirectors":"Tom Shadyac","categoryId":4},
-    {"id":3,"title":"Matrix","description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed id incidunt harum maxime libero est exercitationem unde explicabo? Officiis quis illum cupiditate quasi dicta corporis non est impedit vel a!","imageUrl":"matrix.jpg","isPopular":1,"screenWriters":"Lana Wachowski, Lilly Wachowski","filmDirectors":"Lana Wachowski, Lilly Wachowski","categoryId":3},
-    {"id":4,"title":"Sil Baştan (Eternal Sunshine Of Spotless Mind)","description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed id incidunt harum maxime libero est exercitationem unde explicabo? Officiis quis illum cupiditate quasi dicta corporis non est impedit vel a!","imageUrl":"eternalSunshineOfSpotlessMind.jpg","isPopular":0,"screenWriters":"Charlie Kaufman","filmDirectors":"Michel Gondry","categoryId":2}
-    ],
-    "categories":[
-        {"categoryId":0,"categoryName":"Bilim Kurgu"},
-        {"categoryId":1,"categoryName":"Fantastik"},
-        {"categoryId":2,"categoryName":"Dram"},
-        {"categoryId":3,"categoryName":"Aksiyon"},
-        {"categoryId":4,"categoryName":"Komedi"}
-    ]
-
+{
+  "movies": [
+    {
+      "id": 0,
+      "title": "Yüzüklerin Efendisi(Lord Of The Rings)",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed id incidunt harum maxime libero est exercitationem unde explicabo? Officiis quis illum cupiditate quasi dicta corporis non est impedit vel a!",
+      "imageUrl": "lotr.jpg",
+      "isPopular": 1,
+      "screenWriters": "Peter Jackson, Philippa Boyens, Fran Walsh",
+      "filmDirectors": "Peter Jackson",
+      "categoryId": 1,
+      "imdbPoint": 8.8
+    },
+    {
+      "id": 1,
+      "title": "Yıldızlararası(Interstellar)",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed id incidunt harum maxime libero est exercitationem unde explicabo? Officiis quis illum cupiditate quasi dicta corporis non est impedit vel a!",
+      "imageUrl": "interstellar.jpg",
+      "isPopular": 1,
+      "screenWriters": "Christopher Nolan, Jonathan Nolan",
+      "filmDirectors": "Christopher Nolan",
+      "categoryId": 0,
+      "imdbPoint": 8.6
+    },
+    {
+      "id": 2,
+      "title": "Aman Tanrım(Bruce Almighty)",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed id incidunt harum maxime libero est exercitationem unde explicabo? Officiis quis illum cupiditate quasi dicta corporis non est impedit vel a!",
+      "imageUrl": "bruceAlmighty.jpg",
+      "isPopular": 0,
+      "screenWriters": "Steve Oedekerk, Steve Koren, Mark O'Keefe",
+      "filmDirectors": "Tom Shadyac",
+      "categoryId": 4,
+      "imdbPoint": 6.8
+    },
+    {
+      "id": 3,
+      "title": "Matrix",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed id incidunt harum maxime libero est exercitationem unde explicabo? Officiis quis illum cupiditate quasi dicta corporis non est impedit vel a!",
+      "imageUrl": "matrix.jpg",
+      "isPopular": 1,
+      "screenWriters": "Lana Wachowski, Lilly Wachowski",
+      "filmDirectors": "Lana Wachowski, Lilly Wachowski",
+      "categoryId": 3,
+      "imdbPoint": 8.7
+    },
+    {
+      "id": 4,
+      "title": "Sil Baştan (Eternal Sunshine Of Spotless Mind)",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed id incidunt harum maxime libero est exercitationem unde explicabo? Officiis quis illum cupiditate quasi dicta corporis non est impedit vel a!",
+      "imageUrl": "eternalSunshineOfSpotlessMind.jpg",
+      "isPopular": 0,
+      "screenWriters": "Charlie Kaufman",
+      "filmDirectors": "Michel Gondry",
+      "categoryId": 2,
+      "imdbPoint": 8.3
+    },
+    {
+      "id": 5,
+      "title": "Yedinci Mühür",
+      "categoryId": "2",
+      "imdbPoint": "8.2",
+      "imageUrl": "yedincimuhur.jpg",
+      "description": "Bir ortaçağ şövalyesi, kendisini ve arkadaşlarını kurtarmak için Ölüm'e bir satranç oyununda meydan okur.",
+      "screenWriters": "Ingmar Bergman",
+      "filmDirectors": "Ingmar Bergman",
+      "isPopular": true,
+      "publishedDate": "1957-02-16",
+      "uploadDate": 1644484842942
+    },
+    {
+      "id": 6,
+      "title": "Zindan Adası (Shutter Island)",
+      "categoryId": "1",
+      "imdbPoint": "8.2",
+      "imageUrl": "shutterisland.jpg",
+      "description": "İki ABD polisi Teddy Daniels ve Chuck Aule, bir hastanın ortadan kaybolmasını araştırmak için uzak bir adadaki bir akıl hastanesine gönderilir; burada Teddy, yer hakkında şok edici bir gerçeği ortaya çıkarır.",
+      "screenWriters": "Martin Scorsese",
+      "filmDirectors": "Martin Scorsese",
+      "isPopular": true,
+      "publishedDate": "2010-03-12",
+      "uploadDate": 1644485494560
+    },
+    {
+      "title": "Av Mevsimi",
+      "categoryId": "2",
+      "imdbPoint": 7.4,
+      "imageUrl": "avmevsimi.jpg",
+      "screenWriters": "Yavuz Turgul",
+      "filmDirectors": "Yavuz Turgul",
+      "publishedDate": "2010-12-03",
+      "description": "Av Mevsimi, Yavuz Turgul'un yönetmenliğini yaptığı ve Türk sinemasının üç önemli ismi Şener Şen, Çetin Tekindor ve Cem Yılmaz'ı aynı yapımda buluşturduğu bir filmdir.",
+      "id": 7
+    }
+  ],
+  "categories": [
+    {
+      "categoryId": 0,
+      "categoryName": "Bilim Kurgu"
+    },
+    {
+      "categoryId": 1,
+      "categoryName": "Fantastik"
+    },
+    {
+      "categoryId": 2,
+      "categoryName": "Dram"
+    },
+    {
+      "categoryId": 3,
+      "categoryName": "Aksiyon"
+    },
+    {
+      "categoryId": 4,
+      "categoryName": "Komedi"
+    }
+  ]
 }
