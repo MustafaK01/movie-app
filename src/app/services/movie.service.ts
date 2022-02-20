@@ -3,6 +3,7 @@ import { Injectable } from "@angular/core";
 import { catchError, Observable, tap, throwError } from "rxjs";
 import { Movie } from "../models/movieModel";
 
+
 @Injectable()
 export class MovieService{
     url="http://localhost:3000/movies";
@@ -41,3 +42,4 @@ export class MovieService{
         return throwError("Bir Hata Oluştu")
     }
 }
+

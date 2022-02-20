@@ -14,3 +14,4 @@ export class MovieAddService{
        return this.http.post<Movie>(this.url,movie)
     }
 }
+

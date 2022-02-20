@@ -9,8 +9,7 @@
         type="text" class="form-control" placeholder="Film Ara" >
         <small class="text-muted" *ngIf="searchedMovie">Aranan : {{searchedMovie}}</small>
     </div>
-    <!-- <div class="alert alert-success">{{movies.length}} tane film var.</div> -->
-    <!-- <ng-template [ngTemplateOutlet]="movieList2" [ngTemplateOutletContext]="{movies:popularMovies}"></ng-template> -->
+
     <hr>
     <ng-template [ngTemplateOutlet]="movieList1"></ng-template>
     <ng-template #movieList1>
