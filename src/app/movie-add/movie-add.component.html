@@ -43,7 +43,7 @@
             <br>
             <div class="form-group">
               <label for="publishedDate">Yayınlanma Tarihi : </label>
-              <input  required [(ngModel)]="movieModel.publishedDate" #publishedDate="ngModel" name="publishedDate" type="date" class="form-control" placeholder="">
+              <input required [(ngModel)]="movieModel.publishedDate" #publishedDate="ngModel" name="publishedDate" type="date" class="form-control" placeholder="">
               <div style="border-top: 2px solid red;" *ngIf="publishedDate.invalid && publishedDate.touched" class="alert alert-danger">Filmin Yayınlanma Tarihini Giriniz</div>
             </div>
             <br>

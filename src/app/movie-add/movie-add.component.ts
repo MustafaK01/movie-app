@@ -41,7 +41,19 @@ export class MovieAddComponent implements OnInit {
   }
   addMovie(title:any,categoryId:any,imdbPoint:any,imageUrl:any,description:any,screenWriters:any,filmDirectors:any,publishedDate:any){
         if(this.dataChecker.checkIfAllTrue(title,categoryId,imdbPoint,imageUrl,description,screenWriters,filmDirectors,publishedDate)){
-            const movie:Movie=this.movieModel
+            const movie:Movie={
+              id:0,
+              title:this.movieModel.title,
+              description:this.movieModel.description,
+              imageUrl:this.movieModel.imageUrl,
+              isPopular:imdbPoint>7? true:false,
+              publishedDate:this.movieModel.publishedDate,
+              screenWriters:this.movieModel.screenWriters,
+              filmDirectors:this.movieModel.filmDirectors,
+              categoryId:this.movieModel.categoryId,
+              imdbPoint:this.movieModel.imdbPoint,
+              uploadDate:new Date().getTime()
+            }
             this.movieAddService.addMovie(movie).subscribe(movie=>{
             this.router.navigate(['/movies',movie.id])
             this.alertifyService.success(movie.title+" Eklendi")
@@ -52,4 +64,3 @@ export class MovieAddComponent implements OnInit {
             }
         }
   }
-  
