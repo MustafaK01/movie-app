@@ -1,0 +1,11 @@
+<div class="col-5 mx-auto">
+    <form (ngSubmit)="addCategory(categoryName.value)">
+        <div class="form-group">
+            <label for="categoryName" class="form-label">Kategori Adı: </label>
+            <input  #categoryName  type="text" class="form-control" placeholder="Eklemek İstediğin Kategorinin Adını Gir">
+        </div>
+        <br>
+        <button class="btn btn-primary" type="submit">Ekle</button>
+    
+    </form>
+</div>
