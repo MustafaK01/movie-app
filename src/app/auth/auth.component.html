@@ -1,0 +1,31 @@
+
+<div class="alert alert-warning" *ngIf="error">
+    {{error}}
+</div>
+<div class="col-5 mx-auto">
+
+<form *ngIf="!loading" #authForm="ngForm" (ngSubmit)="onSubmit(authForm)">
+    <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" required email ngModel name="email" id="email" class="form-control">
+    </div>
+    <div class="mb-3">
+        <label for="password" class="form-label">Şifre</label>
+        <input type="password" required minlength="6" ngModel name="password" id="password" class="form-control">
+    </div>
+    <div *ngIf="!isLoginMode" class="mb-3">
+        <label for="password2" class="form-label">Şifre Tekrarı</label>
+        <input type="password" required minlength="6" ngModel name="password2" id="password2" class="form-control">
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="authForm.invalid">{{ isLoginMode ? 'Login':'Register' }}</button>
+    <button type="button" class="btn btn-danger ms-2" (click)="onToggleMode()">
+        Kayıt/Giriş : {{ isLoginMode ? 'Register': 'Login' }}
+    </button>
+</form>
+
+<div *ngIf="loading" class="spinner-border text-primary" role="status">
+    <span class="visually-hidden">Loading...</span>
+</div>
+  
+</div>
+
