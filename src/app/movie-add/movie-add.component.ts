@@ -5,13 +5,13 @@ import { Movie } from '../models/movieModel';
 import { AlterifyService } from '../services/aleterify.service';
 import { CategoryService } from '../services/category.service';
 import { MovieAddService } from '../services/movieAdd.service';
-import { DataChecker } from '../utils/dataChecker';
+import { MovieFormDataChecker } from '../utils/MovieFormDataChecker';
 
 @Component({
   selector: 'app-movie-add',
   templateUrl: './movie-add.component.html',
   styleUrls: ['./movie-add.component.css'],
-  providers:[CategoryService,MovieAddService,AlterifyService,DataChecker]
+  providers:[CategoryService,MovieAddService,AlterifyService,MovieFormDataChecker]
 })
 export class MovieAddComponent implements OnInit {
 
@@ -20,15 +20,15 @@ export class MovieAddComponent implements OnInit {
   categoryService:CategoryService;
   movieAddService:MovieAddService;
   alertifyService:AlterifyService;
-  dataChecker:DataChecker;
+  movieFormDataChecker:MovieFormDataChecker;
   router:Router;
   constructor(categoryService:CategoryService,movieAddService:MovieAddService,
-    alertifyService:AlterifyService,dataChecker:DataChecker,
+    alertifyService:AlterifyService,movieFormDataChecker:MovieFormDataChecker,
     router:Router) { 
     this.categoryService = categoryService;
     this.movieAddService = movieAddService;
     this.alertifyService=alertifyService;
-    this.dataChecker=dataChecker;
+    this.movieFormDataChecker=movieFormDataChecker;
     this.router=router;
   }
   ngOnInit(): void {
@@ -37,10 +37,10 @@ export class MovieAddComponent implements OnInit {
     });
   }
   cleanForm(){
-    this.movieModel={}
+    this.movieModel = {}
   }
   addMovie(title:any,categoryId:any,imdbPoint:any,imageUrl:any,description:any,screenWriters:any,filmDirectors:any,publishedDate:any){
-        if(this.dataChecker.checkIfAllTrue(title,categoryId,imdbPoint,imageUrl,description,screenWriters,filmDirectors,publishedDate)){
+        if(this.movieFormDataChecker.checkIfAllTrue(title,categoryId,imdbPoint,imageUrl,description,screenWriters,filmDirectors,publishedDate)){
             const movie:Movie={
               id:0,
               title:this.movieModel.title,
@@ -55,12 +55,13 @@ export class MovieAddComponent implements OnInit {
               uploadDate:new Date().getTime()
             }
             this.movieAddService.addMovie(movie).subscribe(movie=>{
-            this.router.navigate(['/movies',movie.id])
-            this.alertifyService.success(movie.title+" Eklendi")
+              this.router.navigate(['/movies'])
+              this.alertifyService.success("Eklendi")
             });
         }else{
-            this.dataChecker.notification(title,imageUrl,description);
+            this.movieFormDataChecker.notification(title,imageUrl,description);
             this.alertifyService.error("Bilgileri Tam Girin")
             }
         }
+
   }

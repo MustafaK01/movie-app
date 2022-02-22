@@ -1,61 +1,63 @@
-<form>
-        <div class="form-group">
-            <label for="title">Film Adı : </label>
-            <input required minlength="5" maxlength="50" [(ngModel)]="movieModel.title"  #title="ngModel" name="title" type="text" class="form-control" placeholder="Film Adını Gir">
-            <div style="border-top: 2px solid red;" *ngIf="title.invalid && title.touched" class="alert alert-danger">Film Adını Giriniz,
-            En Az 5 Karakter</div>
+<div class="col-5 mx-auto">
+  <form>
+    <div class="form-group">
+        <label for="title">Film Adı : </label>
+        <input required minlength="5" maxlength="50" [(ngModel)]="movieModel.title"  #title="ngModel" name="title" type="text" class="form-control" placeholder="Film Adını Gir">
+        <div style="border-top: 2px solid red;" *ngIf="title.invalid && title.touched" class="alert alert-danger">Film Adını Giriniz,
+        En Az 5 Karakter</div>
+    </div>
+      <br>
+      <div class="form-group">
+          <label for="categoryId">Filmin Kategorisi : </label>
+          <select required [(ngModel)]="movieModel.categoryId" #categoryId="ngModel" name="categoryId" type="text" class="form-control" placeholder="Film Adını Gir">
+              <option  *ngFor="let item of categoryNames" [value]="item.categoryId">{{item.categoryName}}</option>
+          </select>
+          <div style="border-top: 2px solid red;" *ngIf="categoryId.invalid && categoryId.touched" class="alert alert-danger">Filmin Kategorisini Seçiniz</div>
+
         </div>
+        <br>
+        <div class="form-group">
+          <label for="imdbPoint">IMDB Puanı : </label>
+          <input required [(ngModel)]="movieModel.imdbPoint"  #imdbPoint="ngModel" name="imdbPoint" type="number" step="0.01" min="0" max="10" class="form-control" placeholder="örn 8.8">
+          <div style="border-top: 2px solid red;" *ngIf="imdbPoint.invalid && imdbPoint.touched" class="alert alert-danger">Filmin IMDB Puanını Giriniz</div>
+        </div>
+        <br>
+        <div class="form-group">
+          <label for="imageUrl">Film Resmi Url : </label>
+          <input required [(ngModel)]="movieModel.imageUrl" #imageUrl="ngModel" name="imageUrl"  type="text" class="form-control" placeholder="Film Resmi Url">
+          <div style="border-top: 2px solid red;" *ngIf="imageUrl.invalid && imageUrl.touched" class="alert alert-danger">Film Resminin Urlsini Giriniz(Uzantısı ile birlikte)</div>
+        </div>
+        <br>
+        <div class="form-group">
+          <label for="screenWriters">Filmin Senaristleri :  </label>
+          <input required [(ngModel)]="movieModel.screenWriters"  #screenWriters="ngModel" name="screenWriters" type="text" class="form-control" placeholder="Filmin Senaristleri">
+          <div style="border-top: 2px solid red;" *ngIf="screenWriters.invalid && screenWriters.touched" class="alert alert-danger">Filmin Senaristlerinin İsimlerini Giriniz</div>
+        </div>
+        <br>
+        <div class="form-group">
+          <label for="filmDirectors">Filmin Yönetmenleri : </label>
+          <input required [(ngModel)]="movieModel.filmDirectors" #filmDirectors="ngModel" name="filmDirectors" type="text" class="form-control" placeholder="Filmin Yönetmenleri">
+          <div style="border-top: 2px solid red;" *ngIf="filmDirectors.invalid && filmDirectors.touched" class="alert alert-danger">Filmin Yönetmenlerinin İsimlerini Giriniz</div>
+
+        </div>
+        <br>
+        <div class="form-group">
+          <label for="publishedDate">Yayınlanma Tarihi : </label>
+          <input required [(ngModel)]="movieModel.publishedDate" #publishedDate="ngModel" name="publishedDate" type="date" class="form-control" placeholder="">
+          <div style="border-top: 2px solid red;" *ngIf="publishedDate.invalid && publishedDate.touched" class="alert alert-danger">Filmin Yayınlanma Tarihini Giriniz</div>
+        </div>
+        <br>
+        <div class="form-group">
+          <label for="description">Açıklama </label>
           <br>
-          <div class="form-group">
-              <label for="categoryId">Filmin Kategorisi : </label>
-              <select required [(ngModel)]="movieModel.categoryId" #categoryId="ngModel" name="categoryId" type="text" class="form-control" placeholder="Film Adını Gir">
-                  <option>Seçiniz</option>
-                  <option  *ngFor="let item of categoryNames" [value]="item.categoryId">{{item.categoryName}}</option>
-              </select>
-              <div style="border-top: 2px solid red;" *ngIf="categoryId.invalid && categoryId.touched" class="alert alert-danger">Filmin Kategorisini Seçiniz</div>
+          <textarea required [(ngModel)]="movieModel.description" #description="ngModel" name="description" type="text" class="form-control"></textarea>
+          <div style="border-top: 2px solid red;" *ngIf="description.invalid && description.touched" class="alert alert-danger">Filmin Özet Bilgisini Giriniz</div>
 
-            </div>
-            <br>
-            <div class="form-group">
-              <label for="imdbPoint">IMDB Puanı : </label>
-              <input required [(ngModel)]="movieModel.imdbPoint"  #imdbPoint="ngModel" name="imdbPoint" type="number" step="0.01" min="0" max="10" class="form-control" placeholder="örn 8.8">
-              <div style="border-top: 2px solid red;" *ngIf="imdbPoint.invalid && imdbPoint.touched" class="alert alert-danger">Filmin IMDB Puanını Giriniz</div>
-            </div>
-            <br>
-            <div class="form-group">
-              <label for="imageUrl">Film Resmi Url : </label>
-              <input required [(ngModel)]="movieModel.imageUrl" #imageUrl="ngModel" name="imageUrl"  type="text" class="form-control" placeholder="Film Resmi Url">
-              <div style="border-top: 2px solid red;" *ngIf="imageUrl.invalid && imageUrl.touched" class="alert alert-danger">Film Resminin Urlsini Giriniz(Uzantısı ile birlikte)</div>
-            </div>
-            <br>
-            <div class="form-group">
-              <label for="screenWriters">Filmin Senaristleri :  </label>
-              <input required [(ngModel)]="movieModel.screenWriters"  #screenWriters="ngModel" name="screenWriters" type="text" class="form-control" placeholder="Filmin Senaristleri">
-              <div style="border-top: 2px solid red;" *ngIf="screenWriters.invalid && screenWriters.touched" class="alert alert-danger">Filmin Senaristlerinin İsimlerini Giriniz</div>
-            </div>
-            <br>
-            <div class="form-group">
-              <label for="filmDirectors">Filmin Yönetmenleri : </label>
-              <input required [(ngModel)]="movieModel.filmDirectors" #filmDirectors="ngModel" name="filmDirectors" type="text" class="form-control" placeholder="Filmin Yönetmenleri">
-              <div style="border-top: 2px solid red;" *ngIf="filmDirectors.invalid && filmDirectors.touched" class="alert alert-danger">Filmin Yönetmenlerinin İsimlerini Giriniz</div>
-
-            </div>
-            <br>
-            <div class="form-group">
-              <label for="publishedDate">Yayınlanma Tarihi : </label>
-              <input required [(ngModel)]="movieModel.publishedDate" #publishedDate="ngModel" name="publishedDate" type="date" class="form-control" placeholder="">
-              <div style="border-top: 2px solid red;" *ngIf="publishedDate.invalid && publishedDate.touched" class="alert alert-danger">Filmin Yayınlanma Tarihini Giriniz</div>
-            </div>
-            <br>
-            <div class="form-group">
-              <label for="description">Açıklama </label>
-              <br>
-              <textarea required [(ngModel)]="movieModel.description" #description="ngModel" name="description" type="text" class="form-control"></textarea>
-              <div style="border-top: 2px solid red;" *ngIf="description.invalid && description.touched" class="alert alert-danger">Filmin Özet Bilgisini Giriniz</div>
-
-            </div>
-            <br>
-            <button type="submit" (click)="addMovie(movieModel.title,movieModel.categoryId,movieModel.imdbPoint,movieModel.imageUrl,
-            movieModel.description,movieModel.screenWriters,movieModel.filmDirectors,movieModel.publishedDate)" class="btn btn-primary">Filmi Ekle</button>
-            <button class="btn btn-warning" (click)="cleanForm()">Temizle</button>
+        </div>
+        <br>
+        <button type="submit" (click)="addMovie(movieModel.title,movieModel.categoryId,movieModel.imdbPoint,movieModel.imageUrl,
+        movieModel.description,movieModel.screenWriters,movieModel.filmDirectors,movieModel.publishedDate)" class="btn btn-primary">Filmi Ekle</button>
+        <button class="btn btn-warning mx-1" (click)="cleanForm()">Temizle</button>
 </form> 
+
+</div>

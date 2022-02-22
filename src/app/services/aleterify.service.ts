@@ -18,4 +18,3 @@ export class AlterifyService{
         alertify.error(message)
     }
 }
-

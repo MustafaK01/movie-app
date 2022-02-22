@@ -3,13 +3,14 @@ import { ActivatedRoute } from '@angular/router';
 import { Movie } from '../models/movieModel';
 import { AlterifyService } from '../services/aleterify.service';
 import { MovieService } from '../services/movie.service';
+import { ErrorHandle } from '../utils/errorHandle';
 
 
 @Component({
   selector: 'app-movies',
   templateUrl: './movies.component.html',
   styleUrls: ['./movies.component.css'],
-  providers:[MovieService]
+  providers:[MovieService,ErrorHandle]
 })
 export class MoviesComponent implements OnInit {
 
@@ -19,6 +20,7 @@ export class MoviesComponent implements OnInit {
   filteredMovies:Movie[]=[];
   movies:Movie[]=[];
   today=new Date();
+  loading : boolean = false;
   private alertify : AlterifyService;
   private movieService:MovieService;
   private activatedRoute:ActivatedRoute;
@@ -32,10 +34,13 @@ export class MoviesComponent implements OnInit {
   
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params=>{
+      this.loading = true;
       this.movieService.getMovies(params["categoryId"]).subscribe(data =>{
         this.movies=data
         this.filteredMovies=this.movies
+        this.loading = false;
         },(error=>{
+          this.loading = false;
           this.errorMessage=error;
           this.alertify.error("Hata!");
         }));
@@ -48,6 +53,7 @@ export class MoviesComponent implements OnInit {
         i.screenWriters.toLowerCase().includes(this.searchedMovie.toLowerCase())||
         i.filmDirectors.toLowerCase().includes(this.searchedMovie.toLowerCase())):this.movies
   }
+
   addToList($event:any,movie:Movie){
     if($event.target.classList.contains('btn-primary')){
       $event.target.innerText = "Listeden Çıkar";
@@ -63,4 +69,3 @@ export class MoviesComponent implements OnInit {
   }
 
 }
-

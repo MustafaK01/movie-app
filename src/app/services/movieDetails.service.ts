@@ -1,43 +1,28 @@
 import { HttpClient, HttpErrorResponse, HttpResponse } from "@angular/common/http";
 import { ErrorHandler, Injectable } from "@angular/core";
-import { catchError, Observable, throwError } from "rxjs";
+import { catchError, delay, Observable, throwError } from "rxjs";
 import { Movie } from "../models/movieModel";
+import { ErrorHandle } from "../utils/errorHandle";
 
 @Injectable()
 export class MovieDetailsService{
+    errHandler:ErrorHandle;
     url = "http://localhost:3000/movies";
+    firebaseUrl = "put your firebase url here"
     http:HttpClient;
-    constructor(http:HttpClient){
+    constructor(http:HttpClient,errHandler:ErrorHandle){
         this.http=http;
+        this.errHandler=errHandler;
     }
-    getMovieDetail(movieId:number):Observable<Movie>{
-        let tempUrl = this.url;
+    getMovieDetail(movieId:string):Observable<Movie>{
+        let tempUrl = this.firebaseUrl;
         if(tempUrl){
-            tempUrl+="/"+movieId;
+            tempUrl+="/"+movieId+".json";
         }
        return this.http.get<Movie>(tempUrl).pipe(
-           catchError(this.errHandler)
+           catchError(this.errHandler.errHandler),
+           delay(400)
        );
     }
-    errHandler(error:HttpErrorResponse){
-        if(error.error instanceof ErrorEvent){
-            console.log("Error !  : ", error.error)
-        }else{
-            switch(error.status){
-                case 404:
-                    console.log("Bulunamadı")
-                    break
-                case 403:
-                    console.log("Engellendi")
-                    break
-                case 400:
-                    console.log("Geçersiz İstek")
-                    break
-                default:
-                    console.log("Hata !")
-            }
-        }
-        return throwError("Bir Hata Oluştu")
-    }
-}
 
+}

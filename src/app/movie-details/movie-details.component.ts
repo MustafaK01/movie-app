@@ -14,6 +14,7 @@ export class MovieDetailsComponent implements OnInit {
   errorMessage:any;
   movie:Movie;
   addedMessage:string;
+  loading : boolean = false;
   private alertify : AlterifyService;
   private activatedRoute:ActivatedRoute;
   private movieDetailsService:MovieDetailsService
@@ -25,12 +26,15 @@ export class MovieDetailsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.activatedRoute.params.subscribe(params=>{
+    this.activatedRoute.params.subscribe(params=>{ 
+      this.loading = true;
        this.movieDetailsService.getMovieDetail(params["movieId"]).subscribe(data=>{
          this.movie=data;
+         this.loading = false;
        },(error=>{
         this.errorMessage=error;
         this.alertify.error("Hata !")
+        this.loading = false;
        }));
     })
   }
