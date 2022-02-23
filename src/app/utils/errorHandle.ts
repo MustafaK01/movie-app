@@ -28,3 +28,4 @@ export class ErrorHandle{
         return throwError("Bir Hata Oluştu")
     }
 }
+

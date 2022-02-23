@@ -11,7 +11,7 @@ import { User } from '../models/User';
 })
 export class AuthService {
   user = new BehaviorSubject<User>(null);
-  apiKey="your api key"
+  apiKey="Your api key to here"
   http:HttpClient;
   router:Router;
   constructor(http:HttpClient,router:Router) {
