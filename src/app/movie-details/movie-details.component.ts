@@ -2,33 +2,41 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Movie } from '../models/movieModel';
 import { AlterifyService } from '../services/aleterify.service';
-import { MovieDetailsService } from '../services/movieDetails.service';
+import { AuthService } from '../services/AuthService';
+import { MovieService } from '../services/movie.service';
 
 @Component({
   selector: 'app-movie-details',
   templateUrl: './movie-details.component.html',
   styleUrls: ['./movie-details.component.css'],
-  providers : [MovieDetailsService]
+  providers : [MovieService]
 })
 export class MovieDetailsComponent implements OnInit {
   errorMessage:any;
   movie:Movie;
-  addedMessage:string;
+  leaveeComment:boolean=false;
+  userId:string;
   loading : boolean = false;
   private alertify : AlterifyService;
   private activatedRoute:ActivatedRoute;
-  private movieDetailsService:MovieDetailsService
-  constructor(alertify : AlterifyService,movieDetailsService:MovieDetailsService,
-    activatedRoute:ActivatedRoute) {
+  private movieService:MovieService;
+  private authService:AuthService;
+  constructor(alertify : AlterifyService,movieService:MovieService,
+    activatedRoute:ActivatedRoute,authService:AuthService) {
     this.alertify = alertify;
-    this.movieDetailsService = movieDetailsService;
+    this.movieService = movieService;
     this.activatedRoute = activatedRoute;
+    this.movieService=movieService;
+    this.authService = authService;
   }
 
   ngOnInit(): void {
+    this.authService.user.subscribe(userId=>{
+      this.userId=userId.userId;
+    })
     this.activatedRoute.params.subscribe(params=>{ 
       this.loading = true;
-       this.movieDetailsService.getMovieDetail(params["movieId"]).subscribe(data=>{
+       this.movieService.getMovieDetail(params["movieId"]).subscribe(data=>{
          this.movie=data;
          this.loading = false;
        },(error=>{
@@ -38,18 +46,9 @@ export class MovieDetailsComponent implements OnInit {
        }));
     })
   }
-  addToList($event:any,movie:Movie){
-    if($event.target.classList.contains('btn-primary')){
-      $event.target.innerText = "Listeden Çıkar";
-      $event.target.classList.remove('btn-primary');
-      $event.target.classList.add('btn-danger');
-      this.addedMessage = "Listeye Eklendi";
-    }else{
-      $event.target.innerText = "Listeye Ekle";
-      $event.target.classList.remove('btn-danger');
-      $event.target.classList.add('btn-primary');
-      this.addedMessage = "Listeden Çıkarıldı";
-    }
+  leaveComment(){
+    this.leaveeComment = true;
   }
 
 }
+

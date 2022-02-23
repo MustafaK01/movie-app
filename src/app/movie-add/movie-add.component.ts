@@ -15,6 +15,7 @@ import { MovieFormDataChecker } from '../utils/MovieFormDataChecker';
 })
 export class MovieAddComponent implements OnInit {
 
+
   movieModel:any={};
   categoryNames:Category[];
   categoryService:CategoryService;
@@ -65,3 +66,4 @@ export class MovieAddComponent implements OnInit {
         }
 
   }
+

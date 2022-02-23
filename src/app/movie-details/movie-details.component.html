@@ -20,9 +20,9 @@
                         <div class="text-start">{{movie.description}}</div>
                     </div>
                     <div class="card-footer text-muted text-start">
-                        <a (click)="addToList($event,movie)" class="btn btn-primary">Listeye Ekle</a>
-                        <div class="text-end" *ngIf="addedMessage.length<=15;">
-                            <ng-template [ngTemplateOutlet]="eklendi"></ng-template>
+                        <a (click)="leaveComment()" class="btn btn-primary">Yorum Yap</a>
+                        <div class="text-end" *ngIf="leaveeComment;">
+                            <input type="text">
                         </div>
                     </div>
                 </div>
@@ -30,11 +30,6 @@
             </div>
         </div>
 </div>
-<ng-template #eklendi>
-    <div class="alert alert-success" *ngIf="addedMessage">
-        {{addedMessage}}
-    </div>
-</ng-template>
 <ng-template #blank>
     <div class="alert alert-warning">
         {{"Film Bulunamadı"}}

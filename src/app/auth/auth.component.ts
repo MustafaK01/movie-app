@@ -37,7 +37,9 @@ export class AuthComponent implements OnInit {
   onToggleMode() {
     this.isLoginMode = !this.isLoginMode;
   }
-
+  closeDialog(){
+    this.error=null
+  }
   onSubmit(form: NgForm) {
     if(form.invalid) 
       return;
