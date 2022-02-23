@@ -8,16 +8,21 @@ import { AuthService } from '../services/AuthService';
 })
 export class NavbarComponent implements OnInit {
 
+  userName:string;
   isAuth:boolean=false;
   authService:AuthService;
   constructor(authService:AuthService) {
-    this.authService=authService
-    
+    this.authService=authService    
   }
 
   ngOnInit(): void {
     this.authService.user.subscribe(user=>{
       this.isAuth = !!user;
+
+      this.authService.user.subscribe(userData=>{
+        this.userName=(userData.email.substring(0,userData.email.indexOf("@")));
+      })
+  
     })
   }
   onLogout(){

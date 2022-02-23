@@ -32,10 +32,16 @@
         </ul>
         <ul class="navbar-nav">
             <li *ngIf="isAuth" class="nav-item">
+                <a class="nav-link">
+                    {{userName}}                 
+                </a>
+            </li>
+            <li *ngIf="isAuth" class="nav-item">
                 <a (click)="onLogout()" class="nav-link">
                     Çıkış Yap
                 </a>
             </li>
+
         </ul>
 
         
