@@ -22,6 +22,7 @@ import { ErrorInterceptor } from './services/error.interceptor';
 import { AuthInterceptor } from './services/auth.interceptor';
 import { AuthComponent } from './auth/auth.component';
 import { ParentMoviesComponent } from './movies/parent-movies/parent-movies.component';
+import { AlertComponent } from './shared/alert/alert.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { ParentMoviesComponent } from './movies/parent-movies/parent-movies.comp
     MovieAddComponent,
     CategoryAddComponent,
     AuthComponent,
-    ParentMoviesComponent
+    ParentMoviesComponent,
+    AlertComponent
 
     ],
   imports: [
