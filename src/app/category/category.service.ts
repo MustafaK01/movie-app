@@ -1,6 +1,6 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { Category } from "../models/categoryModel";
+import { Category } from "../category/categoryModel";
 import { map, Observable } from "rxjs";
 
 @Injectable()

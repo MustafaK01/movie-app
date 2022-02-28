@@ -1,9 +1,6 @@
-
 <app-alert *ngIf="error" [message]="error" (close)="closeDialog()"></app-alert>
 
-
 <div class="col-5 mx-auto">
-    
 
 <form *ngIf="!loading" #authForm="ngForm" (ngSubmit)="onSubmit(authForm)">
     <div class="mb-3">

@@ -1,17 +1,20 @@
+// import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Movie } from '../models/movieModel';
-import { AlterifyService } from '../services/aleterify.service';
-import { AuthService } from '../services/AuthService';
-import { MovieService } from '../services/movie.service';
+// import { MovieRepository } from '../models/movie.repository';
+import { Movie } from './movieModel';
+import { AlterifyService } from '../shared/alert/aleterify.service';
+import { AuthService } from '../auth/AuthService';
 import { ErrorHandle } from '../utils/errorHandle';
+import { MovieService } from './movie.service';
 
 
 @Component({
   selector: 'app-movies',
   templateUrl: './movies.component.html',
   styleUrls: ['./movies.component.css'],
-  providers:[MovieService,ErrorHandle]
+  providers:[MovieService,ErrorHandle]//İlgili yerel servis componentin
+  //Component dekoratörü altındaki providers dizisi içerisinde tanımlanır.
 })
 export class MoviesComponent implements OnInit {
 
@@ -39,26 +42,25 @@ export class MoviesComponent implements OnInit {
   
   ngOnInit(): void {
     this.authService.user.subscribe(userId=>{
-      this.userId=userId.userId;
-      this.activatedRoute.params.subscribe(params=>{
-        this.loading = true;
-
-        
-        this.movieService.getMovies(params["categoryId"]).subscribe(data =>{
-          this.movies=data
-          this.filteredMovies=this.movies
-          this.movieService.getList(this.userId).subscribe(data=>{
-            this.movieList=data;
-          })
-          this.loading = false;
-          },(error=>{
+      if(userId){      
+        this.userId=userId.userId;
+        this.activatedRoute.params.subscribe(params=>{
+          this.loading = true;
+          this.movieService.getMovies(params["categoryId"]).subscribe(data =>{
+            this.movies=data
+            this.filteredMovies=this.movies
+            this.movieService.getList(this.userId).subscribe(data=>{
+              this.movieList=data;
+            })
             this.loading = false;
-            this.errorMessage=error;
-            this.alertify.error("Hata!");
-          }));
-      });
+            },(error=>{
+              this.loading = false;
+              this.errorMessage=error;
+              this.alertify.error("Hata!");
+            }));
+        });}
     })
-    
+  
   }  
   getButtonStatus(movie:Movie){
     return this.movieList.findIndex(mv=>mv===movie.id) > -1
@@ -69,8 +71,6 @@ export class MoviesComponent implements OnInit {
         i.screenWriters.toLowerCase().includes(this.searchedMovie.toLowerCase())||
         i.filmDirectors.toLowerCase().includes(this.searchedMovie.toLowerCase())):this.movies
   }
-
-
   addToList($event:any,movie:Movie){
     if($event.target.classList.contains('btn-primary')){
       $event.target.innerText = "Listeden Çıkar";

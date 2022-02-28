@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { AlterifyService } from "../services/aleterify.service";
+import { AlterifyService } from "../shared/alert/aleterify.service";
 
 @Injectable()
 export class MovieFormDataChecker{

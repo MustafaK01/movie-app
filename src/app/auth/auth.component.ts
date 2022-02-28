@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import {NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { Response } from '../models/Response';
-import { AlterifyService } from '../services/aleterify.service';
-import { AuthService } from '../services/AuthService';
+import { Response } from './auth.response';
+import { AlterifyService } from '../shared/alert/aleterify.service';
+import { AuthService } from './AuthService';
 import { RegisterAndLoginFormDataChecker } from '../utils/RegisterAndLoginFormDataChecker';
 
 @Component({

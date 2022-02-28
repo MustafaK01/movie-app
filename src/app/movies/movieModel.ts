@@ -1,4 +1,5 @@
 export interface Movie{
+    
     id:any,
     title:string,
     description:string,

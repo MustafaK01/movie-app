@@ -2,8 +2,8 @@ import { HttpClient, HttpEvent } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { BehaviorSubject, Subject, tap } from 'rxjs';
-import { Response } from '../models/Response';
-import { User } from '../models/User';
+import { Response } from './auth.response';
+import { User } from './UserModel';
 
 
 @Injectable({
@@ -11,7 +11,7 @@ import { User } from '../models/User';
 })
 export class AuthService {
   user = new BehaviorSubject<User>(null);
-  apiKey="Your api key to here"
+  apiKey="put your api key here"
   http:HttpClient;
   router:Router;
   constructor(http:HttpClient,router:Router) {

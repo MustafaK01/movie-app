@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../services/AuthService';
+import { AuthService } from '../auth/AuthService';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -18,9 +18,10 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
     this.authService.user.subscribe(user=>{
       this.isAuth = !!user;
-
       this.authService.user.subscribe(userData=>{
-        this.userName=(userData.email.substring(0,userData.email.indexOf("@")));
+        if(userData){
+          this.userName=(userData.email.substring(0,userData.email.indexOf("@")));
+        }
       })
   
     })
@@ -28,5 +29,8 @@ export class NavbarComponent implements OnInit {
   onLogout(){
     this.authService.logout();
   }
+
+  
+  
 
 }

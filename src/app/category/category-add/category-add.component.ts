@@ -2,9 +2,9 @@ import { LocationStrategy } from '@angular/common';
 import { ThisReceiver } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Category } from '../models/categoryModel';
-import { AlterifyService } from '../services/aleterify.service';
-import { CategoryAddService } from '../services/categoryAdd.service';
+import { Category } from '../categoryModel';
+import { AlterifyService } from '../../shared/alert/aleterify.service';
+import { CategoryAddService } from '../categoryAdd.service';
 
 @Component({
   selector: 'app-category-add',

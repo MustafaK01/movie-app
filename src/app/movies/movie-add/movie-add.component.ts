@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Category } from '../models/categoryModel';
-import { Movie } from '../models/movieModel';
-import { AlterifyService } from '../services/aleterify.service';
-import { CategoryService } from '../services/category.service';
-import { MovieAddService } from '../services/movieAdd.service';
-import { MovieFormDataChecker } from '../utils/MovieFormDataChecker';
+import { Category } from '../../category/categoryModel';
+import { Movie } from '../movieModel';
+import { AlterifyService } from '../../shared/alert/aleterify.service';
+import { CategoryService } from '../../category/category.service';
+import { MovieAddService } from '../../movies/movieAdd.service';
+import { MovieFormDataChecker } from '../../utils/MovieFormDataChecker';
 
 @Component({
   selector: 'app-movie-add',
@@ -14,7 +14,6 @@ import { MovieFormDataChecker } from '../utils/MovieFormDataChecker';
   providers:[CategoryService,MovieAddService,AlterifyService,MovieFormDataChecker]
 })
 export class MovieAddComponent implements OnInit {
-
 
   movieModel:any={};
   categoryNames:Category[];
@@ -66,4 +65,3 @@ export class MovieAddComponent implements OnInit {
         }
 
   }
-

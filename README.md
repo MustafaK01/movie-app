@@ -1,8 +1,13 @@
+# MovieApp
+
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.0.
+
 ## Development server
-If you want to run the project you should install json-server(it used for a fake api). After installed it, you can use the json-server --watch db.json command for start the fake api.
+If you want to run the project, put the firebase url of the project in the specified places and put your api key in the auth service. Keep the images in the /assets/img folder as well.
+If you want to use fake api and you need to edit the codes accordingly. Firstly you should install json-server(it used for a fake api). Then edit the codes found in the service.ts files which about the api url. After installing json-server and editing the codes, you can use the json-server --watch db.json command for start the fake api.
 (db.json file is located in movieApp folder. If the db.json file is located in another folder, you can use the command like this -> json-server --watch path/of/db.json). After that you can 
 use `ng serve` command. If you didn't run the json-server firstly it will give you an error or you will not be able to see any data about the data contained in db.json.
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+
 
 ## Code scaffolding
 

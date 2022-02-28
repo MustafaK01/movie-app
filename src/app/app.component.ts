@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from './services/AuthService';
+import { AuthService } from './auth/AuthService';
 
 @Component({
   selector: 'app-root',
@@ -7,8 +7,8 @@ import { AuthService } from './services/AuthService';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
+  title="movieApp"
   authService:AuthService
-  title:string="movieApp";
   constructor(authService:AuthService){
     this.authService=authService;
   }
