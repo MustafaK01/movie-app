@@ -1,0 +1,70 @@
+<div *ngIf="movie; else blank">
+    <div class="card">
+        <div class="row">
+            <div class="col-md-4">
+                <img src="/assets/img/{{movie.imageUrl}}" class="img-fluid">
+            </div>
+            <div class="col-md-8">
+                <div class="card text-center">
+                    <div class="card-header">
+                    <b>{{movie.title}}</b>
+                    </div>
+                    <div class="card-body">
+                        <ul style="text-align: end;" class="list-group list-group-flush ">
+                            <li class="list-group-item text-muted">Yayınlanma Tarihi : {{movie.publishedDate|date:'dd/MM/y'}}</li>
+                            <li class="list-group-item text-muted">Yönetmenler : {{movie.filmDirectors}}</li>
+                            <li class="list-group-item text-muted">Senaristler :{{movie.screenWriters}}</li>
+                            <li class="list-group-item text-start text-muted">IMDB Puanı: {{movie.imdbPoint+"/10"}}</li>
+                        </ul>
+                        <hr>
+                        <div class="text-start">{{movie.description}}</div>
+                    </div>
+                    <div class="card-footer text-muted text-start">
+                        <a (click)="leaveComment()" class="btn btn-primary">Yorum Yap</a>
+                        <a (click)="seeComments()" class="btn btn-primary mx-2">Yorumları Gör</a>
+                        <div class="text-end" *ngIf="leaveeComment;">
+                            <br>
+                            <textarea #comment class="form-control" rows="4" cols="50" style="resize: none;" type="text"></textarea>
+                            <br>
+                            <a (keyup.enter)="sendComment(comment.value)" (click)="sendComment(comment.value)" class="btn btn-success">Gönder</a>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                <ul  *ngIf="seeCommentss" >
+                    <div  class="container mt-5">
+                        <div class="row d-flex justify-content-center">
+                            <div class="col-md-8">
+                                <div class="headings d-flex justify-content-between align-items-center mb-3">
+                                    <h5>Yorumlar</h5>
+                                </div>
+                            </div>
+                                <div *ngFor="let item of comments" class="card p-3">
+                                    <div class="user d-flex flex-row align-items-center"> 
+                                        <img src="resim" width="30" class="user-img rounded-circle mr-2"> 
+                                    </div>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                            <span>
+                                            <small class="font-weight-bold text-primary">{{item.commentOwner}}<br><small>{{item.commentPostedDate}}</small></small><br>
+                                            <small class="font-weight-bold">{{item.comment}}</small>
+                                        </span> 
+                                    </div> 
+                            </div>
+                        </div>
+                    </div>
+                </ul>
+            </div>
+        </div>
+</div>
+<ng-template #blank>
+    <div class="alert alert-warning">
+        {{"Film Bulunamadı"}}
+    </div>
+</ng-template>
+
+<div *ngIf="loading">
+    <div class="spinner-border text-primary" role="status">
+        <span class="sr-only"></span>
+      </div>
+</div>
+
